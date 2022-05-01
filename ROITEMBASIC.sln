@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ROITEMBASIC", "ROITEMBASIC\ROITEMBASIC.csproj", "{11622F93-6DE5-4578-8645-6D37D1D60772}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11622F93-6DE5-4578-8645-6D37D1D60772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11622F93-6DE5-4578-8645-6D37D1D60772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11622F93-6DE5-4578-8645-6D37D1D60772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11622F93-6DE5-4578-8645-6D37D1D60772}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC6F0F53-9D0A-43C0-885F-4FFE7B8F7840}
+	EndGlobalSection
+EndGlobal
