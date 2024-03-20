@@ -23,33 +23,43 @@ namespace ROITEMBASIC
 
         private void func1()
         {
-            StreamWriter A = new StreamWriter(Application.StartupPath + "\\generated\\" + "accessoryid.txt");
-            StreamWriter B = new StreamWriter(Application.StartupPath + "\\generated\\" + "accname.txt");
-            int inum = Convert.ToInt32(tb1.Text);
+            string directoryPath = Path.Combine(Application.StartupPath, "generated");
 
-            try
+            // Check if the directory exists, if not, create it
+            if (!Directory.Exists(directoryPath))
             {
-                for (int i = 0; i < t1.Lines.Length; i++)
-                {
-                    int vid = inum + i;
-                    A.WriteLine("	ACCESSORY_" + t1.Lines[i] + " = " + vid + ",");
-                    B.WriteLine("	[ACCESSORY_IDs.ACCESSORY_" + t1.Lines[i] + "] = \"_" + t1.Lines[i] + "\",");
-                }
-                A.Close();
-                B.Close();
-                MessageBox.Show(
-                "accessoryid.txt and accname.txt Generating Success.",
-                "Generating Complete.",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+                Directory.CreateDirectory(directoryPath);
             }
-            catch (IOException ex1)
+
+            // Now, create StreamWriter instances for the files
+            string accessoryFilePath = Path.Combine(directoryPath, "accessoryid.txt");
+            string accnameFilePath = Path.Combine(directoryPath, "accname.txt");
+
+            using (StreamWriter A = new StreamWriter(accessoryFilePath))
+            using (StreamWriter B = new StreamWriter(accnameFilePath))
             {
-                MessageBox.Show(
-                "Error",
-                "Error Error Error Error Error Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
+                int inum = Convert.ToInt32(tb1.Text);
+
+                try
+                {
+                    for (int i = 0; i < t1.Lines.Length; i++)
+                    {
+                        int vid = inum + i;
+                        A.WriteLine("    ACCESSORY_" + t1.Lines[i].TrimStart('_') + " = " + vid + ",");
+                        B.WriteLine("    [ACCESSORY_IDs.ACCESSORY_" + t1.Lines[i].TrimStart('_') + "] = \"_" + t1.Lines[i].TrimStart('_') + "\",");
+                    }
+
+                    MessageBox.Show(
+                        "accessoryid.txt and accname.txt Generating Success.",
+                        "Generating Complete.",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                catch (IOException ex1)
+                {
+                    // Handle IOException
+                    MessageBox.Show("Error: " + ex1.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
