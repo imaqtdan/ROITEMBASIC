@@ -28,394 +28,374 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.t1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tb1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.t2 = new System.Windows.Forms.RichTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tb2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ch1 = new System.Windows.Forms.CheckBox();
-            this.cb1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tb3 = new System.Windows.Forms.TextBox();
-            this.tb4 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cb2 = new System.Windows.Forms.ComboBox();
-            this.ch2 = new System.Windows.Forms.CheckBox();
-            this.cb3 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.t3 = new System.Windows.Forms.RichTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.t4 = new System.Windows.Forms.RichTextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.ch3 = new System.Windows.Forms.CheckBox();
-            this.ch4 = new System.Windows.Forms.CheckBox();
-            this.t5 = new System.Windows.Forms.RichTextBox();
-            this.SuspendLayout();
+            t1 = new RichTextBox();
+            tb1 = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            t2 = new RichTextBox();
+            label3 = new Label();
+            tb2 = new TextBox();
+            label4 = new Label();
+            ch1 = new CheckBox();
+            cb1 = new ComboBox();
+            label5 = new Label();
+            label6 = new Label();
+            tb3 = new TextBox();
+            tb4 = new TextBox();
+            label7 = new Label();
+            label8 = new Label();
+            cb2 = new ComboBox();
+            ch2 = new CheckBox();
+            cb3 = new ComboBox();
+            label9 = new Label();
+            t3 = new RichTextBox();
+            label10 = new Label();
+            t4 = new RichTextBox();
+            button3 = new Button();
+            ch3 = new CheckBox();
+            ch4 = new CheckBox();
+            t5 = new RichTextBox();
+            button5 = new Button();
+            label11 = new Label();
+            label12 = new Label();
+            SuspendLayout();
             // 
             // t1
             // 
-            this.t1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.t1.Location = new System.Drawing.Point(12, 68);
-            this.t1.Name = "t1";
-            this.t1.Size = new System.Drawing.Size(225, 519);
-            this.t1.TabIndex = 0;
-            this.t1.Text = "";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 593);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(225, 24);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Generate Accessory ID and Name";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            t1.BorderStyle = BorderStyle.None;
+            t1.Location = new Point(12, 68);
+            t1.Name = "t1";
+            t1.Size = new Size(225, 519);
+            t1.TabIndex = 0;
+            t1.Text = "";
+            t1.TextChanged += t1_TextChanged;
             // 
             // tb1
             // 
-            this.tb1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb1.Location = new System.Drawing.Point(12, 24);
-            this.tb1.Name = "tb1";
-            this.tb1.Size = new System.Drawing.Size(225, 23);
-            this.tb1.TabIndex = 2;
-            this.tb1.TextChanged += new System.EventHandler(this.tb1_TextChanged);
-            this.tb1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb1_KeyPress);
+            tb1.BorderStyle = BorderStyle.FixedSingle;
+            tb1.Location = new Point(12, 24);
+            tb1.Name = "tb1";
+            tb1.Size = new Size(225, 23);
+            tb1.TabIndex = 2;
+            tb1.TextChanged += tb1_TextChanged;
+            tb1.KeyPress += tb1_KeyPress;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "View ID Start";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 6);
+            label1.Name = "label1";
+            label1.Size = new Size(73, 15);
+            label1.TabIndex = 3;
+            label1.Text = "View ID Start";
+            label1.Click += label1_Click;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Sprite Names";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(243, 593);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(225, 24);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Generate itemInfo.lua";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 50);
+            label2.Name = "label2";
+            label2.Size = new Size(77, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Sprite Names";
             // 
             // t2
             // 
-            this.t2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.t2.Location = new System.Drawing.Point(243, 68);
-            this.t2.Name = "t2";
-            this.t2.Size = new System.Drawing.Size(225, 519);
-            this.t2.TabIndex = 6;
-            this.t2.Text = "";
+            t2.BorderStyle = BorderStyle.None;
+            t2.Location = new Point(243, 68);
+            t2.Name = "t2";
+            t2.Size = new Size(225, 519);
+            t2.TabIndex = 6;
+            t2.Text = "";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(243, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Display Names";
+            label3.AutoSize = true;
+            label3.Location = new Point(243, 50);
+            label3.Name = "label3";
+            label3.Size = new Size(135, 15);
+            label3.TabIndex = 7;
+            label3.Text = "Display Name (In Game)";
             // 
             // tb2
             // 
-            this.tb2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb2.Location = new System.Drawing.Point(243, 24);
-            this.tb2.Name = "tb2";
-            this.tb2.Size = new System.Drawing.Size(225, 23);
-            this.tb2.TabIndex = 8;
-            this.tb2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb2_KeyPress);
+            tb2.BorderStyle = BorderStyle.FixedSingle;
+            tb2.Location = new Point(243, 24);
+            tb2.Name = "tb2";
+            tb2.Size = new Size(225, 23);
+            tb2.TabIndex = 8;
+            tb2.KeyPress += tb2_KeyPress;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(243, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Item ID Start";
+            label4.AutoSize = true;
+            label4.Location = new Point(243, 6);
+            label4.Name = "label4";
+            label4.Size = new Size(72, 15);
+            label4.TabIndex = 9;
+            label4.Text = "Item ID Start";
             // 
             // ch1
             // 
-            this.ch1.AutoSize = true;
-            this.ch1.Location = new System.Drawing.Point(839, 68);
-            this.ch1.Name = "ch1";
-            this.ch1.Size = new System.Drawing.Size(128, 19);
-            this.ch1.TabIndex = 10;
-            this.ch1.Text = "Costume Headgear";
-            this.ch1.UseVisualStyleBackColor = true;
-            this.ch1.CheckedChanged += new System.EventHandler(this.ch1_CheckedChanged);
+            ch1.AutoSize = true;
+            ch1.Location = new Point(839, 68);
+            ch1.Name = "ch1";
+            ch1.Size = new Size(128, 19);
+            ch1.TabIndex = 10;
+            ch1.Text = "Costume Headgear";
+            ch1.UseVisualStyleBackColor = true;
+            ch1.CheckedChanged += ch1_CheckedChanged;
             // 
             // cb1
             // 
-            this.cb1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb1.FormattingEnabled = true;
-            this.cb1.Items.AddRange(new object[] {
-            "Upper",
-            "Middle",
-            "Lower",
-            "Upper, Middle",
-            "Middle, Lower",
-            "Upper, Lower",
-            "Upper, Middle, Lower"});
-            this.cb1.Location = new System.Drawing.Point(839, 149);
-            this.cb1.Name = "cb1";
-            this.cb1.Size = new System.Drawing.Size(128, 23);
-            this.cb1.TabIndex = 11;
+            cb1.DropDownStyle = ComboBoxStyle.DropDownList;
+            cb1.FormattingEnabled = true;
+            cb1.Items.AddRange(new object[] { "Upper", "Middle", "Lower", "Upper, Middle", "Middle, Lower", "Upper, Lower", "Upper, Middle, Lower" });
+            cb1.Location = new Point(839, 149);
+            cb1.Name = "cb1";
+            cb1.Size = new Size(128, 23);
+            cb1.TabIndex = 11;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(839, 131);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 15);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Headgear Position";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            label5.AutoSize = true;
+            label5.Location = new Point(839, 131);
+            label5.Name = "label5";
+            label5.Size = new Size(104, 15);
+            label5.TabIndex = 12;
+            label5.Text = "Headgear Position";
+            label5.Click += label5_Click;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(839, 87);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 15);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Defense";
+            label6.AutoSize = true;
+            label6.Location = new Point(839, 87);
+            label6.Name = "label6";
+            label6.Size = new Size(49, 15);
+            label6.TabIndex = 13;
+            label6.Text = "Defense";
             // 
             // tb3
             // 
-            this.tb3.Location = new System.Drawing.Point(839, 105);
-            this.tb3.Name = "tb3";
-            this.tb3.Size = new System.Drawing.Size(128, 23);
-            this.tb3.TabIndex = 14;
-            this.tb3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb3_KeyPress);
+            tb3.Location = new Point(839, 105);
+            tb3.Name = "tb3";
+            tb3.Size = new Size(128, 23);
+            tb3.TabIndex = 14;
+            tb3.KeyPress += tb3_KeyPress;
             // 
             // tb4
             // 
-            this.tb4.Location = new System.Drawing.Point(839, 193);
-            this.tb4.Name = "tb4";
-            this.tb4.Size = new System.Drawing.Size(128, 23);
-            this.tb4.TabIndex = 15;
-            this.tb4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb4_KeyPress);
+            tb4.Location = new Point(839, 193);
+            tb4.Name = "tb4";
+            tb4.Size = new Size(128, 23);
+            tb4.TabIndex = 15;
+            tb4.KeyPress += tb4_KeyPress;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(839, 175);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 15);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Weight";
+            label7.AutoSize = true;
+            label7.Location = new Point(839, 175);
+            label7.Name = "label7";
+            label7.Size = new Size(45, 15);
+            label7.TabIndex = 16;
+            label7.Text = "Weight";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(839, 219);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 15);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Armor Level";
+            label8.AutoSize = true;
+            label8.Location = new Point(839, 219);
+            label8.Name = "label8";
+            label8.Size = new Size(71, 15);
+            label8.TabIndex = 17;
+            label8.Text = "Armor Level";
             // 
             // cb2
             // 
-            this.cb2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb2.FormattingEnabled = true;
-            this.cb2.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4"});
-            this.cb2.Location = new System.Drawing.Point(839, 237);
-            this.cb2.Name = "cb2";
-            this.cb2.Size = new System.Drawing.Size(128, 23);
-            this.cb2.TabIndex = 18;
+            cb2.DropDownStyle = ComboBoxStyle.DropDownList;
+            cb2.FormattingEnabled = true;
+            cb2.Items.AddRange(new object[] { "1", "2", "3", "4" });
+            cb2.Location = new Point(839, 237);
+            cb2.Name = "cb2";
+            cb2.Size = new Size(128, 23);
+            cb2.TabIndex = 18;
             // 
             // ch2
             // 
-            this.ch2.AutoSize = true;
-            this.ch2.Location = new System.Drawing.Point(839, 266);
-            this.ch2.Name = "ch2";
-            this.ch2.Size = new System.Drawing.Size(75, 19);
-            this.ch2.TabIndex = 19;
-            this.ch2.Text = "Refinable";
-            this.ch2.UseVisualStyleBackColor = true;
+            ch2.AutoSize = true;
+            ch2.Location = new Point(839, 266);
+            ch2.Name = "ch2";
+            ch2.Size = new Size(75, 19);
+            ch2.TabIndex = 19;
+            ch2.Text = "Refinable";
+            ch2.UseVisualStyleBackColor = true;
             // 
             // cb3
             // 
-            this.cb3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb3.FormattingEnabled = true;
-            this.cb3.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4"});
-            this.cb3.Location = new System.Drawing.Point(839, 306);
-            this.cb3.Name = "cb3";
-            this.cb3.Size = new System.Drawing.Size(128, 23);
-            this.cb3.TabIndex = 21;
+            cb3.DropDownStyle = ComboBoxStyle.DropDownList;
+            cb3.FormattingEnabled = true;
+            cb3.Items.AddRange(new object[] { "0", "1", "2", "3", "4" });
+            cb3.Location = new Point(839, 306);
+            cb3.Name = "cb3";
+            cb3.Size = new Size(128, 23);
+            cb3.TabIndex = 21;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(839, 288);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 15);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Slot Count";
+            label9.AutoSize = true;
+            label9.Location = new Point(839, 288);
+            label9.Name = "label9";
+            label9.Size = new Size(63, 15);
+            label9.TabIndex = 20;
+            label9.Text = "Slot Count";
             // 
             // t3
             // 
-            this.t3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.t3.Location = new System.Drawing.Point(474, 69);
-            this.t3.Name = "t3";
-            this.t3.Size = new System.Drawing.Size(359, 138);
-            this.t3.TabIndex = 22;
-            this.t3.Text = "";
+            t3.BorderStyle = BorderStyle.None;
+            t3.Location = new Point(474, 69);
+            t3.Name = "t3";
+            t3.Size = new Size(359, 138);
+            t3.TabIndex = 22;
+            t3.Text = "";
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(474, 50);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(94, 15);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Item Description";
+            label10.AutoSize = true;
+            label10.Location = new Point(474, 50);
+            label10.Name = "label10";
+            label10.Size = new Size(94, 15);
+            label10.TabIndex = 23;
+            label10.Text = "Item Description";
             // 
             // t4
             // 
-            this.t4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.t4.Location = new System.Drawing.Point(474, 238);
-            this.t4.Name = "t4";
-            this.t4.Size = new System.Drawing.Size(359, 138);
-            this.t4.TabIndex = 24;
-            this.t4.Text = "";
+            t4.BorderStyle = BorderStyle.None;
+            t4.Location = new Point(474, 238);
+            t4.Name = "t4";
+            t4.Size = new Size(359, 138);
+            t4.TabIndex = 24;
+            t4.Text = "";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(839, 576);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 41);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "Generate All";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(474, 593);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(359, 24);
-            this.button4.TabIndex = 27;
-            this.button4.Text = "Generate ItemDB";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            button3.Location = new Point(839, 576);
+            button3.Name = "button3";
+            button3.Size = new Size(128, 41);
+            button3.TabIndex = 26;
+            button3.Text = "Generate";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // ch3
             // 
-            this.ch3.AutoSize = true;
-            this.ch3.Location = new System.Drawing.Point(474, 213);
-            this.ch3.Name = "ch3";
-            this.ch3.Size = new System.Drawing.Size(129, 19);
-            this.ch3.TabIndex = 28;
-            this.ch3.Text = "Item Description #2";
-            this.ch3.UseVisualStyleBackColor = true;
-            this.ch3.CheckedChanged += new System.EventHandler(this.ch3_CheckedChanged);
+            ch3.AutoSize = true;
+            ch3.Location = new Point(474, 213);
+            ch3.Name = "ch3";
+            ch3.Size = new Size(129, 19);
+            ch3.TabIndex = 28;
+            ch3.Text = "Item Description #2";
+            ch3.UseVisualStyleBackColor = true;
+            ch3.CheckedChanged += ch3_CheckedChanged;
             // 
             // ch4
             // 
-            this.ch4.AutoSize = true;
-            this.ch4.Location = new System.Drawing.Point(474, 382);
-            this.ch4.Name = "ch4";
-            this.ch4.Size = new System.Drawing.Size(83, 19);
-            this.ch4.TabIndex = 30;
-            this.ch4.Text = "Item Script";
-            this.ch4.UseVisualStyleBackColor = true;
-            this.ch4.CheckedChanged += new System.EventHandler(this.ch4_CheckedChanged);
+            ch4.AutoSize = true;
+            ch4.Location = new Point(474, 382);
+            ch4.Name = "ch4";
+            ch4.Size = new Size(83, 19);
+            ch4.TabIndex = 30;
+            ch4.Text = "Item Script";
+            ch4.UseVisualStyleBackColor = true;
+            ch4.CheckedChanged += ch4_CheckedChanged;
             // 
             // t5
             // 
-            this.t5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.t5.Location = new System.Drawing.Point(474, 407);
-            this.t5.Name = "t5";
-            this.t5.Size = new System.Drawing.Size(359, 180);
-            this.t5.TabIndex = 29;
-            this.t5.Text = "";
+            t5.BorderStyle = BorderStyle.None;
+            t5.Location = new Point(474, 407);
+            t5.Name = "t5";
+            t5.Size = new Size(359, 180);
+            t5.TabIndex = 29;
+            t5.Text = "";
+            // 
+            // button5
+            // 
+            button5.Location = new Point(839, 546);
+            button5.Name = "button5";
+            button5.Size = new Size(128, 24);
+            button5.TabIndex = 31;
+            button5.Text = "Import Items";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(12, 602);
+            label11.Name = "label11";
+            label11.Size = new Size(80, 15);
+            label11.TabIndex = 32;
+            label11.Text = "Status : Ready";
+            label11.Click += label11_Click;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(839, 50);
+            label12.Name = "label12";
+            label12.Size = new Size(0, 15);
+            label12.TabIndex = 33;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 629);
-            this.Controls.Add(this.ch4);
-            this.Controls.Add(this.t5);
-            this.Controls.Add(this.ch3);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.t4);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.t3);
-            this.Controls.Add(this.cb3);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.ch2);
-            this.Controls.Add(this.cb2);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.tb4);
-            this.Controls.Add(this.tb3);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.cb1);
-            this.Controls.Add(this.ch1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.tb2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.t2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tb1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.t1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MdiChildrenMinimizedAnchorBottom = false;
-            this.MinimizeBox = false;
-            this.Name = "Form1";
-            this.Text = "EZ Item Generator v1 by mharkeke";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(983, 629);
+            Controls.Add(label12);
+            Controls.Add(label11);
+            Controls.Add(button5);
+            Controls.Add(ch4);
+            Controls.Add(t5);
+            Controls.Add(ch3);
+            Controls.Add(button3);
+            Controls.Add(t4);
+            Controls.Add(label10);
+            Controls.Add(t3);
+            Controls.Add(cb3);
+            Controls.Add(label9);
+            Controls.Add(ch2);
+            Controls.Add(cb2);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(tb4);
+            Controls.Add(tb3);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(cb1);
+            Controls.Add(ch1);
+            Controls.Add(label4);
+            Controls.Add(tb2);
+            Controls.Add(label3);
+            Controls.Add(t2);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(tb1);
+            Controls.Add(t1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
+            Name = "Form1";
+            Text = "EZ Item Generator v1.2 by qtdan";
+            Load += Form1_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private RichTextBox t1;
-        private Button button1;
         private TextBox tb1;
         private Label label1;
         private Label label2;
-        private Button button2;
         private RichTextBox t2;
         private Label label3;
         private TextBox tb2;
@@ -436,9 +416,11 @@
         private Label label10;
         private RichTextBox t4;
         private Button button3;
-        private Button button4;
         private CheckBox ch3;
         private CheckBox ch4;
         private RichTextBox t5;
+        private Button button5;
+        private Label label11;
+        private Label label12;
     }
 }

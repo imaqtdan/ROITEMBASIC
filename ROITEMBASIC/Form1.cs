@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace ROITEMBASIC
 {
@@ -49,11 +51,12 @@ namespace ROITEMBASIC
                         B.WriteLine("    [ACCESSORY_IDs.ACCESSORY_" + t1.Lines[i].TrimStart('_') + "] = \"_" + t1.Lines[i].TrimStart('_') + "\",");
                     }
 
-                    MessageBox.Show(
-                        "accessoryid.txt and accname.txt Generating Success.",
-                        "Generating Complete.",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    //MessageBox.Show(
+                    //    "accessoryid.txt and accname.txt Generating Success.",
+                    //    "Generating Complete.",
+                    //    MessageBoxButtons.OK,
+                    //    MessageBoxIcon.Information);
+                    label11.Text = "Status : accessoryid.txt and accname.txt Generating Success.";
                 }
                 catch (IOException ex1)
                 {
@@ -141,11 +144,14 @@ namespace ROITEMBASIC
 
                 }
                 C.Close();
-                MessageBox.Show(
-                "itemInfo.lua Generating Success.",
-                "Generating Complete.",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+
+                //MessageBox.Show(
+                //"itemInfo.lua Generating Success.",
+                //"Generating Complete.",
+                //MessageBoxButtons.OK,
+                //MessageBoxIcon.Information);
+
+                label11.Text = "Status : itemInfo.lua Generating Success.";
             }
             catch (IOException ex2)
             {
@@ -281,11 +287,13 @@ namespace ROITEMBASIC
                     }
                 }
                 D.Close();
-                MessageBox.Show(
-                "item_db_equip.yml Generating Success.",
-                "Generating Complete.",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+                //MessageBox.Show(
+                //"item_db_equip.yml Generating Success.",
+                //"Generating Complete.",
+                //MessageBoxButtons.OK,
+                //MessageBoxIcon.Information);
+                label11.Text = "Status : Generating Success.";
+                label11.ForeColor = Color.Green;
             }
             catch (IOException ex3)
             {
@@ -297,7 +305,7 @@ namespace ROITEMBASIC
             }
         }
 
-            private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             func1();
         }
@@ -319,7 +327,7 @@ namespace ROITEMBASIC
 
         private void ch1_CheckedChanged(object sender, EventArgs e)
         {
-        if (ch1.Checked)
+            if (ch1.Checked)
             {
                 label8.Hide();
                 cb2.Hide();
@@ -330,7 +338,7 @@ namespace ROITEMBASIC
                 cb3.Hide();
                 cb3.Text = "0";
             }
-        else
+            else
             {
                 label8.Show();
                 cb2.Show();
@@ -340,7 +348,7 @@ namespace ROITEMBASIC
                 cb3.Show();
                 cb3.Text = "1";
             }
-            
+
         }
 
         private void ch3_CheckedChanged(object sender, EventArgs e)
@@ -401,10 +409,32 @@ namespace ROITEMBASIC
 
         private void button3_Click(object sender, EventArgs e)
         {
-            func1();
-            func2();
-            func3();
+            if (string.IsNullOrEmpty(tb1.Text) || string.IsNullOrEmpty(tb2.Text))
+            {
+                label11.Text = string.IsNullOrEmpty(tb1.Text) ? "Status : Add value for View Id Start." : "Status : Add value for Item Id Start.";
+                label11.ForeColor = Color.Red;
+            }
+            else if (t1.Lines.Length != t2.Lines.Length)
+            {
+                MessageBox.Show("Error: The number of lines in t1 and t2 does not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                func1();
+                func2();
+                func3();
+
+                // Get the directory where the executable is located
+                string exeDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+
+                // Construct the path to the "generated" folder
+                string generatedFolderPath = Path.Combine(exeDirectory, "generated");
+
+                // Open the "generated" folder using the default file explorer
+                Process.Start("explorer.exe", generatedFolderPath);
+            }
         }
+
 
         private void ch4_CheckedChanged(object sender, EventArgs e)
         {
@@ -419,5 +449,53 @@ namespace ROITEMBASIC
                 t5.Hide();
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Select Folder";
+            openFileDialog.Filter = "Bitmap Files|*.bmp";
+            openFileDialog.Multiselect = false;
+            openFileDialog.CheckFileExists = false;
+            openFileDialog.FileName = "Select Folder";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string folderPath = Path.GetDirectoryName(openFileDialog.FileName);
+                string[] bmpFiles = Directory.GetFiles(folderPath, "*.bmp");
+
+                // Clear existing text in t1.Text and t2.Text
+                t1.Text = "";
+                t2.Text = "";
+
+                for (int i = 0; i < bmpFiles.Length; i++)
+                {
+                    // Append each BMP file name (without extension) on a new line in t1.Text
+                    t1.AppendText(Path.GetFileNameWithoutExtension(bmpFiles[i]));
+
+                    // Append each BMP file name (without extension) on a new line in t2.Text
+                    t2.AppendText(Path.GetFileNameWithoutExtension(bmpFiles[i]));
+
+                    // Add a newline if it's not the last file name
+                    if (i < bmpFiles.Length - 1)
+                    {
+                        t1.AppendText(Environment.NewLine);
+                        t2.AppendText(Environment.NewLine);
+                    }
+                }
+            }
+        }
+
+
+        private void t1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
