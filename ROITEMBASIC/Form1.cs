@@ -106,29 +106,29 @@ namespace ROITEMBASIC
                     C.WriteLine("			\"_______________________\",");
                     if (ch1.Checked)
                     {
-                        C.WriteLine("			\" ^0000CCType: ^000000 Costume\",");
+                        C.WriteLine("			\"^0000CCType: ^000000 Costume\",");
                     }
                     else
                     {
-                        C.WriteLine("			\" ^0000CCType: ^000000 Headgear\",");
+                        C.WriteLine("			\"^0000CCType: ^000000 Headgear\",");
                     }
-                    C.WriteLine("			\" ^0000CCDefense: ^000000 " + tb3.Text + "\",");
-                    C.WriteLine("			\" ^0000CCPosition: ^000000 " + cb1.Text + "\",");
-                    C.WriteLine("			\" ^0000CCWeight: ^000000 " + tb4.Text + "\",");
+                    C.WriteLine("			\"^0000CCDefense: ^000000 " + tb3.Text + "\",");
+                    C.WriteLine("			\"^0000CCPosition: ^000000 " + cb1.Text + "\",");
+                    C.WriteLine("			\"^0000CCWeight: ^000000 " + tb4.Text + "\",");
                     if (!ch1.Checked)
                     {
-                        C.WriteLine("			\" ^0000CCArmor Level: ^000000 " + cb2.Text + "\",");
+                        C.WriteLine("			\"^0000CCArmor Level: ^000000 " + cb2.Text + "\",");
                         if (ch2.Checked)
                         {
-                            C.WriteLine("			\" ^0000CCRefineable: ^000000 Yes\",");
+                            C.WriteLine("			\"^0000CCRefineable: ^000000 Yes\",");
                         }
                         else
                         {
-                            C.WriteLine("			\" ^0000CCRefineable: ^000000 No\",");
+                            C.WriteLine("			\"^0000CCRefineable: ^000000 No\",");
                         }
                     }
                     C.WriteLine("			\"_______________________\",");
-                    C.WriteLine("			\" ^0000CCRequirement: ^000000 None\"");
+                    C.WriteLine("			\"^0000CCRequirement: ^000000 None\"");
                     C.WriteLine("		},");
                     C.WriteLine("		slotCount = " + cb3.Text + ",");
                     C.WriteLine("		ClassNum = 0,");
@@ -144,13 +144,6 @@ namespace ROITEMBASIC
 
                 }
                 C.Close();
-
-                //MessageBox.Show(
-                //"itemInfo.lua Generating Success.",
-                //"Generating Complete.",
-                //MessageBoxButtons.OK,
-                //MessageBoxIcon.Information);
-
                 label11.Text = "Status : itemInfo.lua Generating Success.";
             }
             catch (IOException ex2)
@@ -287,11 +280,6 @@ namespace ROITEMBASIC
                     }
                 }
                 D.Close();
-                //MessageBox.Show(
-                //"item_db_equip.yml Generating Success.",
-                //"Generating Complete.",
-                //MessageBoxButtons.OK,
-                //MessageBoxIcon.Information);
                 label11.Text = "Status : Generating Success.";
                 label11.ForeColor = Color.Green;
             }
@@ -416,7 +404,7 @@ namespace ROITEMBASIC
             }
             else if (t1.Lines.Length != t2.Lines.Length)
             {
-                MessageBox.Show("Error: The number of lines in t1 and t2 does not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: The number of lines in Sprite Names and Display Name does not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
