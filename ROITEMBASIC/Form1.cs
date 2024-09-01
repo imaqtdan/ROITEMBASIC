@@ -13,10 +13,7 @@ namespace ROITEMBASIC
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            cb1.Text = "Upper";
             cb2.Text = "1";
-            cb3.Text = "0";
             tb3.Text = "0";
             tb4.Text = "0";
             t4.Hide();
@@ -50,17 +47,10 @@ namespace ROITEMBASIC
                         A.WriteLine("    ACCESSORY_" + t1.Lines[i].TrimStart('_') + " = " + vid + ",");
                         B.WriteLine("    [ACCESSORY_IDs.ACCESSORY_" + t1.Lines[i].TrimStart('_') + "] = \"_" + t1.Lines[i].TrimStart('_') + "\",");
                     }
-
-                    //MessageBox.Show(
-                    //    "accessoryid.txt and accname.txt Generating Success.",
-                    //    "Generating Complete.",
-                    //    MessageBoxButtons.OK,
-                    //    MessageBoxIcon.Information);
                     label11.Text = "Status : accessoryid.txt and accname.txt Generating Success.";
                 }
                 catch (IOException ex1)
                 {
-                    // Handle IOException
                     MessageBox.Show("Error: " + ex1.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -113,7 +103,34 @@ namespace ROITEMBASIC
                         C.WriteLine("			\"^0000CCType: ^000000 Headgear\",");
                     }
                     C.WriteLine("			\"^0000CCDefense: ^000000 " + tb3.Text + "\",");
-                    C.WriteLine("			\"^0000CCPosition: ^000000 " + cb1.Text + "\",");
+                    // Update for Independent Box in Adding Custom Item [Dantoki]
+                    switch (postb.Lines[i])
+                    {
+                        case "U":
+                            C.WriteLine("			\"^0000CCPosition: ^000000 Upper" + "\",");
+                            break;
+                        case "M":
+                            C.WriteLine("			\"^0000CCPosition: ^000000 Middle" + "\",");
+                            break;
+                        case "L":
+                            C.WriteLine("			\"^0000CCPosition: ^000000 Lower" + "\",");
+                            break;
+                        case "UM":
+                            C.WriteLine("			\"^0000CCPosition: ^000000 Upper & Middle" + "\",");
+                            break;
+                        case "UL":
+                            C.WriteLine("			\"^0000CCPosition: ^000000 Upper & Lower" + "\",");
+                            break;
+                        case "ML":
+                            C.WriteLine("			\"^0000CCPosition: ^000000 Middle & Lower" + "\",");
+                            break;
+                        case "UML":
+                            C.WriteLine("			\"^0000CCPosition: ^000000 Upper, Middle & Lower" + "\",");
+                            break;
+                        default:
+                            C.WriteLine("			\"^0000CCPosition: ^000000 Upper" + "\",");
+                            break;
+                    }
                     C.WriteLine("			\"^0000CCWeight: ^000000 " + tb4.Text + "\",");
                     if (!ch1.Checked)
                     {
@@ -130,7 +147,7 @@ namespace ROITEMBASIC
                     C.WriteLine("			\"_______________________\",");
                     C.WriteLine("			\"^0000CCRequirement: ^000000 None\"");
                     C.WriteLine("		},");
-                    C.WriteLine("		slotCount = " + cb3.Text + ",");
+                    C.WriteLine("		slotCount = " + slottb.Lines[i] + ",");
                     C.WriteLine("		ClassNum = 0,");
                     if (ch1.Checked)
                     {
@@ -187,81 +204,80 @@ namespace ROITEMBASIC
                     {
                         D.WriteLine("    Defense: " + tb3.Text);
                     }
-                    if (cb3.Text != "0")
+                    if (int.TryParse(slottb.Lines[i], out int slotNumber) && slotNumber > 0 && slotNumber <= 4)
                     {
-                        D.WriteLine("    Slots: " + cb3.Text);
+                        D.WriteLine("    Slots: " + slottb.Lines[i]);
                     }
+
                     D.WriteLine("    Locations:");
                     if (ch1.Checked)
                     {
-                        if (cb1.Text == "Upper")
+                        switch (postb.Lines[i])
                         {
-                            D.WriteLine("      Costume_Head_Top: true");
-                        }
-                        else if (cb1.Text == "Middle")
-                        {
-                            D.WriteLine("      Costume_Head_Mid: true");
-                        }
-                        else if (cb1.Text == "Lower")
-                        {
-                            D.WriteLine("      Costume_Head_Low: true");
-                        }
-                        else if (cb1.Text == "Upper, Middle")
-                        {
-                            D.WriteLine("      Costume_Head_Top: true");
-                            D.WriteLine("      Costume_Head_Mid: true");
-                        }
-                        else if (cb1.Text == "Middle, Lower")
-                        {
-                            D.WriteLine("      Costume_Head_Mid: true");
-                            D.WriteLine("      Costume_Head_Low: true");
-                        }
-                        else if (cb1.Text == "Upper, Lower")
-                        {
-                            D.WriteLine("      Costume_Head_Top: true");
-                            D.WriteLine("      Costume_Head_Low: true");
-                        }
-                        else if (cb1.Text == "Upper, Middle, Lower")
-                        {
-                            D.WriteLine("      Costume_Head_Top: true");
-                            D.WriteLine("      Costume_Head_Mid: true");
-                            D.WriteLine("      Costume_Head_Low: true");
+                            case "U":
+                                D.WriteLine("      Costume_Head_Top: true");
+                                break;
+                            case "M":
+                                D.WriteLine("      Costume_Head_Mid: true");
+                                break;
+                            case "L":
+                                D.WriteLine("      Costume_Head_Low: true");
+                                break;
+                            case "UM":
+                                D.WriteLine("      Costume_Head_Top: true");
+                                D.WriteLine("      Costume_Head_Mid: true");
+                                break;
+                            case "UL":
+                                D.WriteLine("      Costume_Head_Top: true");
+                                D.WriteLine("      Costume_Head_Low: true");
+                                break;
+                            case "ML":
+                                D.WriteLine("      Costume_Head_Mid: true");
+                                D.WriteLine("      Costume_Head_Low: true");
+                                break;
+                            case "UML":
+                                D.WriteLine("      Costume_Head_Top: true");
+                                D.WriteLine("      Costume_Head_Mid: true");
+                                D.WriteLine("      Costume_Head_Low: true");
+                                break;
+                            default:
+                                D.WriteLine("      Costume_Head_Top: true");
+                                break;
                         }
                     }
                     else
                     {
-                        if (cb1.Text == "Upper")
+                        switch (postb.Lines[i])
                         {
-                            D.WriteLine("      Head_Top: true");
-                        }
-                        else if (cb1.Text == "Middle")
-                        {
-                            D.WriteLine("      Head_Mid: true");
-                        }
-                        else if (cb1.Text == "Lower")
-                        {
-                            D.WriteLine("      Head_Low: true");
-                        }
-                        else if (cb1.Text == "Upper, Middle")
-                        {
-                            D.WriteLine("      Head_Top: true");
-                            D.WriteLine("      Head_Mid: true");
-                        }
-                        else if (cb1.Text == "Middle, Lower")
-                        {
-                            D.WriteLine("      Head_Mid: true");
-                            D.WriteLine("      Head_Low: true");
-                        }
-                        else if (cb1.Text == "Upper, Lower")
-                        {
-                            D.WriteLine("      Head_Top: true");
-                            D.WriteLine("      Head_Low: true");
-                        }
-                        else if (cb1.Text == "Upper, Middle, Lower")
-                        {
-                            D.WriteLine("      Head_Top: true");
-                            D.WriteLine("      Head_Mid: true");
-                            D.WriteLine("      Head_Low: true");
+                            case "U":
+                                D.WriteLine("      Head_Top: true");
+                                break;
+                            case "M":
+                                D.WriteLine("      Head_Mid: true");
+                                break;
+                            case "L":
+                                D.WriteLine("      Head_Low: true");
+                                break;
+                            case "UM":
+                                D.WriteLine("      Head_Top: true");
+                                D.WriteLine("      Head_Mid: true");
+                                break;
+                            case "UL":
+                                D.WriteLine("      Head_Top: true");
+                                D.WriteLine("      Head_Low: true");
+                                break;
+                            case "ML":
+                                D.WriteLine("      Head_Mid: true");
+                                D.WriteLine("      Head_Low: true");
+                                break;
+                            case "UML":
+                                D.WriteLine("      Head_Top: true");
+                                D.WriteLine("      Head_Mid: true");
+                                D.WriteLine("     Head_Low: true");
+                                break;
+                            default:
+                                D.WriteLine("      Head_Top: true");
+                                break;
                         }
                     }
                     if (ch2.Checked)
@@ -322,9 +338,6 @@ namespace ROITEMBASIC
                 cb2.Text = "1";
                 ch2.Checked = false;
                 ch2.Hide();
-                label9.Hide();
-                cb3.Hide();
-                cb3.Text = "0";
             }
             else
             {
@@ -332,9 +345,6 @@ namespace ROITEMBASIC
                 cb2.Show();
                 cb2.Text = "1";
                 ch2.Show();
-                label9.Show();
-                cb3.Show();
-                cb3.Text = "1";
             }
 
         }
@@ -452,27 +462,38 @@ namespace ROITEMBASIC
                 string folderPath = Path.GetDirectoryName(openFileDialog.FileName);
                 string[] bmpFiles = Directory.GetFiles(folderPath, "*.bmp");
 
-                // Clear existing text in t1.Text and t2.Text
+                // Clear existing text in t1.Text, t2.Text, t3.Text, and t4.Text
                 t1.Text = "";
                 t2.Text = "";
+                postb.Text = "";
+                slottb.Text = "";
 
                 for (int i = 0; i < bmpFiles.Length; i++)
                 {
+                    string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(bmpFiles[i]);
+
                     // Append each BMP file name (without extension) on a new line in t1.Text
-                    t1.AppendText(Path.GetFileNameWithoutExtension(bmpFiles[i]));
+                    t1.AppendText(fileNameWithoutExtension);
 
                     // Append each BMP file name (without extension) on a new line in t2.Text
-                    t2.AppendText(Path.GetFileNameWithoutExtension(bmpFiles[i]));
+                    t2.AppendText(fileNameWithoutExtension);
+
+                    // Append 0 on a new line in t3.Text and t4.Text
+                    postb.AppendText("U");
+                    slottb.AppendText("0");
 
                     // Add a newline if it's not the last file name
                     if (i < bmpFiles.Length - 1)
                     {
                         t1.AppendText(Environment.NewLine);
                         t2.AppendText(Environment.NewLine);
+                        postb.AppendText(Environment.NewLine);
+                        slottb.AppendText(Environment.NewLine);
                     }
                 }
             }
         }
+
 
 
         private void t1_TextChanged(object sender, EventArgs e)
@@ -485,5 +506,14 @@ namespace ROITEMBASIC
 
         }
 
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void postb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

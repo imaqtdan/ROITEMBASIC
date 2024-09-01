@@ -37,8 +37,6 @@
             tb2 = new TextBox();
             label4 = new Label();
             ch1 = new CheckBox();
-            cb1 = new ComboBox();
-            label5 = new Label();
             label6 = new Label();
             tb3 = new TextBox();
             tb4 = new TextBox();
@@ -46,8 +44,6 @@
             label8 = new Label();
             cb2 = new ComboBox();
             ch2 = new CheckBox();
-            cb3 = new ComboBox();
-            label9 = new Label();
             t3 = new RichTextBox();
             label10 = new Label();
             t4 = new RichTextBox();
@@ -58,6 +54,10 @@
             button5 = new Button();
             label11 = new Label();
             label12 = new Label();
+            postb = new RichTextBox();
+            slottb = new RichTextBox();
+            label13 = new Label();
+            label14 = new Label();
             SuspendLayout();
             // 
             // t1
@@ -138,7 +138,7 @@
             // ch1
             // 
             ch1.AutoSize = true;
-            ch1.Location = new Point(839, 68);
+            ch1.Location = new Point(971, 68);
             ch1.Name = "ch1";
             ch1.Size = new Size(128, 19);
             ch1.TabIndex = 10;
@@ -146,30 +146,10 @@
             ch1.UseVisualStyleBackColor = true;
             ch1.CheckedChanged += ch1_CheckedChanged;
             // 
-            // cb1
-            // 
-            cb1.DropDownStyle = ComboBoxStyle.DropDownList;
-            cb1.FormattingEnabled = true;
-            cb1.Items.AddRange(new object[] { "Upper", "Middle", "Lower", "Upper, Middle", "Middle, Lower", "Upper, Lower", "Upper, Middle, Lower" });
-            cb1.Location = new Point(839, 149);
-            cb1.Name = "cb1";
-            cb1.Size = new Size(128, 23);
-            cb1.TabIndex = 11;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(839, 131);
-            label5.Name = "label5";
-            label5.Size = new Size(104, 15);
-            label5.TabIndex = 12;
-            label5.Text = "Headgear Position";
-            label5.Click += label5_Click;
-            // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(839, 87);
+            label6.Location = new Point(971, 87);
             label6.Name = "label6";
             label6.Size = new Size(49, 15);
             label6.TabIndex = 13;
@@ -177,7 +157,7 @@
             // 
             // tb3
             // 
-            tb3.Location = new Point(839, 105);
+            tb3.Location = new Point(971, 105);
             tb3.Name = "tb3";
             tb3.Size = new Size(128, 23);
             tb3.TabIndex = 14;
@@ -185,7 +165,7 @@
             // 
             // tb4
             // 
-            tb4.Location = new Point(839, 193);
+            tb4.Location = new Point(971, 150);
             tb4.Name = "tb4";
             tb4.Size = new Size(128, 23);
             tb4.TabIndex = 15;
@@ -194,7 +174,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(839, 175);
+            label7.Location = new Point(971, 132);
             label7.Name = "label7";
             label7.Size = new Size(45, 15);
             label7.TabIndex = 16;
@@ -203,7 +183,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(839, 219);
+            label8.Location = new Point(971, 176);
             label8.Name = "label8";
             label8.Size = new Size(71, 15);
             label8.TabIndex = 17;
@@ -214,7 +194,7 @@
             cb2.DropDownStyle = ComboBoxStyle.DropDownList;
             cb2.FormattingEnabled = true;
             cb2.Items.AddRange(new object[] { "1", "2", "3", "4" });
-            cb2.Location = new Point(839, 237);
+            cb2.Location = new Point(971, 194);
             cb2.Name = "cb2";
             cb2.Size = new Size(128, 23);
             cb2.TabIndex = 18;
@@ -222,36 +202,17 @@
             // ch2
             // 
             ch2.AutoSize = true;
-            ch2.Location = new Point(839, 266);
+            ch2.Location = new Point(971, 223);
             ch2.Name = "ch2";
             ch2.Size = new Size(75, 19);
             ch2.TabIndex = 19;
             ch2.Text = "Refinable";
             ch2.UseVisualStyleBackColor = true;
             // 
-            // cb3
-            // 
-            cb3.DropDownStyle = ComboBoxStyle.DropDownList;
-            cb3.FormattingEnabled = true;
-            cb3.Items.AddRange(new object[] { "0", "1", "2", "3", "4" });
-            cb3.Location = new Point(839, 306);
-            cb3.Name = "cb3";
-            cb3.Size = new Size(128, 23);
-            cb3.TabIndex = 21;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(839, 288);
-            label9.Name = "label9";
-            label9.Size = new Size(63, 15);
-            label9.TabIndex = 20;
-            label9.Text = "Slot Count";
-            // 
             // t3
             // 
             t3.BorderStyle = BorderStyle.None;
-            t3.Location = new Point(474, 69);
+            t3.Location = new Point(606, 69);
             t3.Name = "t3";
             t3.Size = new Size(359, 138);
             t3.TabIndex = 22;
@@ -260,7 +221,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(474, 50);
+            label10.Location = new Point(606, 50);
             label10.Name = "label10";
             label10.Size = new Size(94, 15);
             label10.TabIndex = 23;
@@ -269,7 +230,7 @@
             // t4
             // 
             t4.BorderStyle = BorderStyle.None;
-            t4.Location = new Point(474, 238);
+            t4.Location = new Point(606, 238);
             t4.Name = "t4";
             t4.Size = new Size(359, 138);
             t4.TabIndex = 24;
@@ -277,7 +238,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(839, 576);
+            button3.Location = new Point(971, 576);
             button3.Name = "button3";
             button3.Size = new Size(128, 41);
             button3.TabIndex = 26;
@@ -288,7 +249,7 @@
             // ch3
             // 
             ch3.AutoSize = true;
-            ch3.Location = new Point(474, 213);
+            ch3.Location = new Point(606, 213);
             ch3.Name = "ch3";
             ch3.Size = new Size(129, 19);
             ch3.TabIndex = 28;
@@ -299,7 +260,7 @@
             // ch4
             // 
             ch4.AutoSize = true;
-            ch4.Location = new Point(474, 382);
+            ch4.Location = new Point(606, 382);
             ch4.Name = "ch4";
             ch4.Size = new Size(83, 19);
             ch4.TabIndex = 30;
@@ -310,7 +271,7 @@
             // t5
             // 
             t5.BorderStyle = BorderStyle.None;
-            t5.Location = new Point(474, 407);
+            t5.Location = new Point(606, 407);
             t5.Name = "t5";
             t5.Size = new Size(359, 180);
             t5.TabIndex = 29;
@@ -318,7 +279,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(839, 546);
+            button5.Location = new Point(971, 546);
             button5.Name = "button5";
             button5.Size = new Size(128, 24);
             button5.TabIndex = 31;
@@ -339,16 +300,58 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(839, 50);
+            label12.Location = new Point(971, 50);
             label12.Name = "label12";
             label12.Size = new Size(0, 15);
             label12.TabIndex = 33;
+            // 
+            // postb
+            // 
+            postb.BorderStyle = BorderStyle.None;
+            postb.Location = new Point(474, 68);
+            postb.Name = "postb";
+            postb.Size = new Size(60, 519);
+            postb.TabIndex = 34;
+            postb.Text = "";
+            postb.TextChanged += postb_TextChanged;
+            // 
+            // slottb
+            // 
+            slottb.BorderStyle = BorderStyle.None;
+            slottb.Location = new Point(540, 68);
+            slottb.Name = "slottb";
+            slottb.Size = new Size(60, 519);
+            slottb.TabIndex = 35;
+            slottb.Text = "";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(474, 50);
+            label13.Name = "label13";
+            label13.Size = new Size(50, 15);
+            label13.TabIndex = 36;
+            label13.Text = "Position";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(540, 50);
+            label14.Name = "label14";
+            label14.Size = new Size(63, 15);
+            label14.TabIndex = 37;
+            label14.Text = "Slot Count";
+            label14.Click += label14_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(983, 629);
+            ClientSize = new Size(1110, 629);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(slottb);
+            Controls.Add(postb);
             Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(button5);
@@ -359,8 +362,6 @@
             Controls.Add(t4);
             Controls.Add(label10);
             Controls.Add(t3);
-            Controls.Add(cb3);
-            Controls.Add(label9);
             Controls.Add(ch2);
             Controls.Add(cb2);
             Controls.Add(label8);
@@ -368,8 +369,6 @@
             Controls.Add(tb4);
             Controls.Add(tb3);
             Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(cb1);
             Controls.Add(ch1);
             Controls.Add(label4);
             Controls.Add(tb2);
@@ -401,8 +400,6 @@
         private TextBox tb2;
         private Label label4;
         private CheckBox ch1;
-        private ComboBox cb1;
-        private Label label5;
         private Label label6;
         private TextBox tb3;
         private TextBox tb4;
@@ -410,8 +407,6 @@
         private Label label8;
         private ComboBox cb2;
         private CheckBox ch2;
-        private ComboBox cb3;
-        private Label label9;
         private RichTextBox t3;
         private Label label10;
         private RichTextBox t4;
@@ -422,5 +417,9 @@
         private Button button5;
         private Label label11;
         private Label label12;
+        private RichTextBox postb;
+        private RichTextBox slottb;
+        private Label label13;
+        private Label label14;
     }
 }
