@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             t1 = new RichTextBox();
             tb1 = new TextBox();
             label1 = new Label();
@@ -46,10 +47,7 @@
             ch2 = new CheckBox();
             t3 = new RichTextBox();
             label10 = new Label();
-            t4 = new RichTextBox();
             button3 = new Button();
-            ch3 = new CheckBox();
-            ch4 = new CheckBox();
             t5 = new RichTextBox();
             button5 = new Button();
             label11 = new Label();
@@ -58,6 +56,7 @@
             slottb = new RichTextBox();
             label13 = new Label();
             label14 = new Label();
+            label5 = new Label();
             SuspendLayout();
             // 
             // t1
@@ -214,7 +213,7 @@
             t3.BorderStyle = BorderStyle.None;
             t3.Location = new Point(606, 69);
             t3.Name = "t3";
-            t3.Size = new Size(359, 138);
+            t3.Size = new Size(359, 390);
             t3.TabIndex = 22;
             t3.Text = "";
             // 
@@ -227,15 +226,6 @@
             label10.TabIndex = 23;
             label10.Text = "Item Description";
             // 
-            // t4
-            // 
-            t4.BorderStyle = BorderStyle.None;
-            t4.Location = new Point(606, 238);
-            t4.Name = "t4";
-            t4.Size = new Size(359, 138);
-            t4.TabIndex = 24;
-            t4.Text = "";
-            // 
             // button3
             // 
             button3.Location = new Point(971, 576);
@@ -246,34 +236,12 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // ch3
-            // 
-            ch3.AutoSize = true;
-            ch3.Location = new Point(606, 213);
-            ch3.Name = "ch3";
-            ch3.Size = new Size(129, 19);
-            ch3.TabIndex = 28;
-            ch3.Text = "Item Description #2";
-            ch3.UseVisualStyleBackColor = true;
-            ch3.CheckedChanged += ch3_CheckedChanged;
-            // 
-            // ch4
-            // 
-            ch4.AutoSize = true;
-            ch4.Location = new Point(606, 382);
-            ch4.Name = "ch4";
-            ch4.Size = new Size(83, 19);
-            ch4.TabIndex = 30;
-            ch4.Text = "Item Script";
-            ch4.UseVisualStyleBackColor = true;
-            ch4.CheckedChanged += ch4_CheckedChanged;
-            // 
             // t5
             // 
             t5.BorderStyle = BorderStyle.None;
-            t5.Location = new Point(606, 407);
+            t5.Location = new Point(606, 480);
             t5.Name = "t5";
-            t5.Size = new Size(359, 180);
+            t5.Size = new Size(359, 107);
             t5.TabIndex = 29;
             t5.Text = "";
             // 
@@ -343,11 +311,21 @@
             label14.Text = "Slot Count";
             label14.Click += label14_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(606, 462);
+            label5.Name = "label5";
+            label5.Size = new Size(64, 15);
+            label5.TabIndex = 38;
+            label5.Text = "Item Script";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1110, 629);
+            Controls.Add(label5);
             Controls.Add(label14);
             Controls.Add(label13);
             Controls.Add(slottb);
@@ -355,11 +333,8 @@
             Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(button5);
-            Controls.Add(ch4);
             Controls.Add(t5);
-            Controls.Add(ch3);
             Controls.Add(button3);
-            Controls.Add(t4);
             Controls.Add(label10);
             Controls.Add(t3);
             Controls.Add(ch2);
@@ -379,11 +354,12 @@
             Controls.Add(tb1);
             Controls.Add(t1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
             Name = "Form1";
-            Text = "EZ Item Generator v1.2 by qtdan";
+            Text = "Item Generator by [Dantoki] v2.0";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -409,10 +385,7 @@
         private CheckBox ch2;
         private RichTextBox t3;
         private Label label10;
-        private RichTextBox t4;
         private Button button3;
-        private CheckBox ch3;
-        private CheckBox ch4;
         private RichTextBox t5;
         private Button button5;
         private Label label11;
@@ -421,5 +394,6 @@
         private RichTextBox slottb;
         private Label label13;
         private Label label14;
+        private Label label5;
     }
 }
