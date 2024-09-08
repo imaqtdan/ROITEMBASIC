@@ -71,53 +71,46 @@ namespace ROITEMBASIC
                         C.WriteLine("    unidentifiedDisplayName = \"Unidentified Mask\",");
                         C.WriteLine("    unidentifiedResourceName = \"마스크\",");
                         C.WriteLine("    unidentifiedDescriptionName = { \"Can be identified by using a ^990099Magnifier ^000000.\" },");
-
-                        if (ch1.Checked)
-                        {
-                            C.WriteLine("    identifiedDisplayName = \"Costume " + t2.Lines[i] + "\",");
-                        }
-                        else
-                        {
-                            C.WriteLine("    identifiedDisplayName = \"" + t2.Lines[i] + "\",");
-                        }
+                        C.WriteLine(ch1.Checked ? "    identifiedDisplayName = \"Costume " + t2.Lines[i] + "\"," : "    identifiedDisplayName = \"" + t2.Lines[i] + "\",");
+                        C.WriteLine("    identifiedResourceName = \"" + t1.Lines[i] + "\",");
                         C.WriteLine("    identifiedDescriptionName = {");
                         string[] descriptionLines = itemDescriptions[i].Trim().Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
                         foreach (string line in descriptionLines)
                         {
                             C.WriteLine("        \"" + line.Trim() + "\",");
                         }
-                        C.WriteLine("        \"^0000CCType: ^000000 Costume\",");
+                        C.WriteLine(ch1.Checked ? "        \"^0000CCType: ^000000Costume\"," : "        \"^0000CCType: ^000000Headgear\",");
                         C.WriteLine("        \"^0000CCDefense: ^000000 " + tb3.Text + "\",");
                         switch (postb.Lines[i])
                         {
                             case "U":
-                                C.WriteLine("        \"^0000CCPosition: ^000000 Upper" + "\",");
+                                C.WriteLine("        \"^0000CCPosition: ^000000Upper" + "\",");
                                 break;
                             case "M":
-                                C.WriteLine("        \"^0000CCPosition: ^000000 Middle" + "\",");
+                                C.WriteLine("        \"^0000CCPosition: ^000000Middle" + "\",");
                                 break;
                             case "L":
-                                C.WriteLine("        \"^0000CCPosition: ^000000 Lower" + "\",");
+                                C.WriteLine("        \"^0000CCPosition: ^000000Lower" + "\",");
                                 break;
                             case "UM":
                             case "MU":
-                                C.WriteLine("        \"^0000CCPosition: ^000000 Upper & Middle" + "\",");
+                                C.WriteLine("        \"^0000CCPosition: ^000000Upper & Middle" + "\",");
                                 break;
                             case "UL":
                             case "LU":
-                                C.WriteLine("        \"^0000CCPosition: ^000000 Upper & Lower" + "\",");
+                                C.WriteLine("        \"^0000CCPosition: ^000000Upper & Lower" + "\",");
                                 break;
                             case "ML":
                             case "LM":
-                                C.WriteLine("        \"^0000CCPosition: ^000000 Middle & Lower" + "\",");
+                                C.WriteLine("        \"^0000CCPosition: ^000000Middle & Lower" + "\",");
                                 break;
                             case "UML":
                             case "LMU":
                             case "MLU":
-                                C.WriteLine("        \"^0000CCPosition: ^000000 Upper, Middle & Lower" + "\",");
+                                C.WriteLine("        \"^0000CCPosition: ^000000Upper, Middle & Lower" + "\",");
                                 break;
                             default:
-                                C.WriteLine("        \"^0000CCPosition: ^000000 Upper" + "\",");
+                                C.WriteLine("        \"^0000CCPosition: ^000000Upper" + "\",");
                                 break;
                         }
                         C.WriteLine("        \"^0000CCWeight: ^000000 " + tb4.Text + "\",");
@@ -131,7 +124,7 @@ namespace ROITEMBASIC
                         C.WriteLine("        \"_______________________\",");
                         C.WriteLine("        \"^0000CCRequirement: ^000000 None\"");
                         C.WriteLine("    },");
-                        C.WriteLine("    slotCount = " + slottb.Lines[i] + ",");
+                        C.WriteLine(ch1.Checked ? "    slotCount = 0," : "    slotCount = " + slottb.Lines[i] + ",");
                         C.WriteLine("    ClassNum = 0,");
                         C.WriteLine(ch1.Checked ? "    costume = true" : "    costume = false");
                         C.WriteLine("},");
