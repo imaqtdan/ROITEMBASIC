@@ -79,50 +79,51 @@ namespace ROITEMBASIC
                         {
                             C.WriteLine("        \"" + line.Trim() + "\",");
                         }
-                        C.WriteLine(ch1.Checked ? "        \"^0000CCType: ^000000Costume\"," : "        \"^0000CCType: ^000000Headgear\",");
-                        C.WriteLine("        \"^0000CCDefense: ^000000 " + tb3.Text + "\",");
+                        C.WriteLine("        \"^a0a0a0-------------------------^000000\",");
+                        C.WriteLine(ch1.Checked ? "        \"Class:^6666CC Costume^000000\"," : "        \"Class:^6666CC Headgear^000000\",");
+                        C.WriteLine("        \"Defense:^0000FF " + tb3.Text + "^000000\",");
                         switch (postb.Lines[i])
                         {
                             case "U":
-                                C.WriteLine("        \"^0000CCPosition: ^000000Upper" + "\",");
+                                C.WriteLine("        \"Position:^6666CC Upper^000000" + "\",");
                                 break;
                             case "M":
-                                C.WriteLine("        \"^0000CCPosition: ^000000Middle" + "\",");
+                                C.WriteLine("        \"Position:^6666CC Middle^000000" + "\",");
                                 break;
                             case "L":
-                                C.WriteLine("        \"^0000CCPosition: ^000000Lower" + "\",");
+                                C.WriteLine("        \"Position:^6666CC Lower^000000" + "\",");
                                 break;
                             case "UM":
                             case "MU":
-                                C.WriteLine("        \"^0000CCPosition: ^000000Upper & Middle" + "\",");
+                                C.WriteLine("        \"Position:^6666CC Upper, Middle^000000" + "\",");
                                 break;
                             case "UL":
                             case "LU":
-                                C.WriteLine("        \"^0000CCPosition: ^000000Upper & Lower" + "\",");
+                                C.WriteLine("        \"Position:^6666CC Upper, Lower^000000" + "\",");
                                 break;
                             case "ML":
                             case "LM":
-                                C.WriteLine("        \"^0000CCPosition: ^000000Middle & Lower" + "\",");
+                                C.WriteLine("        \"Position:^6666CC Middle, Lower^000000" + "\",");
                                 break;
                             case "UML":
                             case "LMU":
                             case "MLU":
-                                C.WriteLine("        \"^0000CCPosition: ^000000Upper, Middle & Lower" + "\",");
+                                C.WriteLine("        \"Position:^6666CC Upper, Middle, Lower^000000" + "\",");
                                 break;
                             default:
-                                C.WriteLine("        \"^0000CCPosition: ^000000Upper" + "\",");
+                                C.WriteLine("        \"Position:^6666CC Upper^000000" + "\",");
                                 break;
                         }
-                        C.WriteLine("        \"^0000CCWeight: ^000000 " + tb4.Text + "\",");
+                        C.WriteLine("        \"Weight:^009900 " + tb4.Text + "^000000\",");
 
                         if (!ch1.Checked)
                         {
-                            C.WriteLine("        \"^0000CCArmor Level: ^000000 " + cb2.Text + "\",");
-                            C.WriteLine(ch2.Checked ? "        \"^0000CCRefineable: ^000000 Yes\"," : "        \"^0000CCRefineable: ^000000 No\",");
+                            C.WriteLine("        \"Armor Level:^009900 " + cb2.Text + "^000000\",");
+                            C.WriteLine(ch2.Checked ? "        \"Refineable:^009900 Yes^000000\"," : "        \"^FF0000Unrefineable^000000\",");
                         }
 
-                        C.WriteLine("        \"_______________________\",");
-                        C.WriteLine("        \"^0000CCRequirement: ^000000 None\"");
+                        C.WriteLine("        \"^a0a0a0-------------------------^000000\",");
+                        C.WriteLine("        \"Jobs:^6666CC All^000000\"");
                         C.WriteLine("    },");
                         C.WriteLine(ch1.Checked ? "    slotCount = 0," : "    slotCount = " + slottb.Lines[i] + ",");
                         C.WriteLine("    ClassNum = 0,");
@@ -150,15 +151,16 @@ namespace ROITEMBASIC
                 {
                     int idnum2 = idnum + i;
                     int vid = inum + i;
+                    string cleanedName = t2.Lines[i].Replace(" ", "_");
                     D.WriteLine("  - Id: " + idnum2);
                     if (ch1.Checked)
                     {
-                        D.WriteLine("    AegisName: Costume " + t2.Lines[i]);
+                        D.WriteLine("    AegisName: Costume_" + cleanedName);
                         D.WriteLine("    Name: Costume " + t2.Lines[i]);
                     }
                     else
                     {
-                        D.WriteLine("    AegisName: " + t2.Lines[i]);
+                        D.WriteLine("    AegisName: " + cleanedName);
                         D.WriteLine("    Name: " + t2.Lines[i]);
                     }
                     D.WriteLine("    Type: Armor");
@@ -262,10 +264,16 @@ namespace ROITEMBASIC
                     }
                     D.WriteLine("    ArmorLevel: " + cb2.Text);
                     D.WriteLine("    View: " + vid);
-                    D.WriteLine("    Script: |");
-                    for (int i4 = 0; i4 < t5.Lines.Length; i4++)
+                    if (t5.Lines.Any(line => !string.IsNullOrWhiteSpace(line)))
                     {
-                        D.WriteLine("      " + t5.Lines[i4]);
+                        D.WriteLine("    Script: |");
+                        for (int i4 = 0; i4 < t5.Lines.Length; i4++)
+                        {
+                            if (!string.IsNullOrWhiteSpace(t5.Lines[i4]))
+                            {
+                                D.WriteLine("      " + t5.Lines[i4]);
+                            }
+                        }
                     }
                 }
                 D.Close();
